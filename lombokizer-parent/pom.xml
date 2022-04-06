@@ -19,7 +19,7 @@
         <maven.install.plugin.version>2.5.1</maven.install.plugin.version>
         <maven.resource.plugin.version>2.6</maven.resource.plugin.version>
         <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
-
+        <maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
         <lombok.maven.plugin.version>1.18.10.0</lombok.maven.plugin.version>
     </properties>
 
@@ -65,6 +65,12 @@
                     <artifactId>maven-source-plugin</artifactId>
                     <version>${maven.source.plugin.version}</version>
                 </plugin>
+
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                </plugin>
+
 
             </plugins>
         </pluginManagement>
