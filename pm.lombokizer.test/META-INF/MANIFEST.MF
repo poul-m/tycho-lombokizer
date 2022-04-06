@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Lombok tests
+Bundle-SymbolicName: pm.lombokizer.test
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: pm.lombokizer.test
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ClassPath: .
+Require-Bundle: org.projectlombok.lombok;resolution:=optional,
+ org.junit;bundle-version="4.12.0";resolution:=optional
