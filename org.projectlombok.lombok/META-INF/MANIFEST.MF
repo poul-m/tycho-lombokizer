@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Lombok
+Bundle-SymbolicName: org.projectlombok.lombok
+Bundle-Version: 1.18.10.qualifier
+Automatic-Module-Name: org.projectlombok.lombok
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: lombok,
+ lombok.experimental,
+ lombok.extern.apachecommons,
+ lombok.extern.flogger,
+ lombok.extern.java,
+ lombok.extern.jbosslog,
+ lombok.extern.log4j,
+ lombok.extern.slf4j
+Bundle-ClassPath: lib/lombok.jar
