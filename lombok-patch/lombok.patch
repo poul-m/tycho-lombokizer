@@ -1,18 +1,19 @@
 diff --git a/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcher.java b/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcher.java
-index aa01c13..d2c704b 100644
+index aa01c13..1106d0d 100644
 --- a/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcher.java
 +++ b/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcher.java
-@@ -39,17 +39,30 @@
+@@ -39,33 +39,50 @@
  						"java.lang.Class", "java.lang.String", "boolean"))
  				.target(new MethodTarget("org.eclipse.osgi.internal.loader.ModuleClassLoader", "loadClass",
  						"java.lang.Class", "java.lang.String", "boolean"))
 +				.target(new MethodTarget("org.sonar.classloader.ClassRealm", "loadClass",
-+                        "java.lang.Class", "java.lang.String", "boolean"))
++						"java.lang.Class", "java.lang.String", "boolean"))
  				.decisionMethod(new Hook(TRANSPLANTS_CLASS_NAME, "overrideLoadDecide", "boolean", "java.lang.ClassLoader", "java.lang.String", "boolean"))
  				.valueMethod(new Hook(TRANSPLANTS_CLASS_NAME, "overrideLoadResult", "java.lang.Class", "java.lang.ClassLoader", "java.lang.String", "boolean"))
  				.transplant()
  				.request(StackRequest.THIS, StackRequest.PARAM1, StackRequest.PARAM2).build());
- 		
+-		
++
 +		sm.addScript(ScriptBuilder.exitEarly()
 +				.target(new MethodTarget("org.codehaus.plexus.classworlds.realm.ClassRealm", "loadClass",
 +						"java.lang.Class", "java.lang.String", "boolean"))
@@ -21,7 +22,7 @@ index aa01c13..d2c704b 100644
 +				.valueMethod(new Hook(TRANSPLANTS_CLASS_NAME, "overrideLoadResult", "java.lang.Class",
 +						"java.lang.ClassLoader", "java.lang.String", "boolean"))
 +				.transplant().request(StackRequest.THIS, StackRequest.PARAM1, StackRequest.PARAM2).build());
-+		
++
  		sm.addScript(ScriptBuilder.addField().setPublic().setVolatile()
  				.fieldType("Ljava/lang/ClassLoader;")
  				.fieldName("lombok$shadowLoader")
@@ -29,25 +30,29 @@ index aa01c13..d2c704b 100644
  				.targetClass("org.eclipse.osgi.framework.adapter.core.AbstractClassLoader")
  				.targetClass("org.eclipse.osgi.internal.loader.ModuleClassLoader")
 +				.targetClass("org.codehaus.plexus.classworlds.realm.ClassRealm")
-+                .targetClass("org.sonar.classloader.ClassRealm")
++				.targetClass("org.sonar.classloader.ClassRealm")
  				.build());
- 		
+-		
++
  		sm.addScript(ScriptBuilder.addField().setPublic().setVolatile().setStatic()
-@@ -58,6 +71,8 @@
+ 				.fieldType("Ljava/lang/Class;")
+ 				.fieldName("lombok$shadowLoaderClass")
  				.targetClass("org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader")
  				.targetClass("org.eclipse.osgi.framework.adapter.core.AbstractClassLoader")
  				.targetClass("org.eclipse.osgi.internal.loader.ModuleClassLoader")
 +				.targetClass("org.codehaus.plexus.classworlds.realm.ClassRealm")
-+                .targetClass("org.sonar.classloader.ClassRealm")
++				.targetClass("org.sonar.classloader.ClassRealm")
  				.build());
- 		
+-		
++
  		sm.addScript(ScriptBuilder.addField().setPublic().setStatic().setFinal()
-@@ -66,6 +81,8 @@
+ 				.fieldType("Ljava/lang/String;")
+ 				.fieldName("lombok$location")
  				.targetClass("org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader")
  				.targetClass("org.eclipse.osgi.framework.adapter.core.AbstractClassLoader")
  				.targetClass("org.eclipse.osgi.internal.loader.ModuleClassLoader")
 +				.targetClass("org.codehaus.plexus.classworlds.realm.ClassRealm")
-+                .targetClass("org.sonar.classloader.ClassRealm")
++				.targetClass("org.sonar.classloader.ClassRealm")
  				.value(ClassRootFinder.findClassRootOfClass(launchingContext))
  				.build());
  	}
