@@ -7,6 +7,6 @@ pm.lombokizer.test - demo plug-in with lombok annotations
    git clone https://github.com/poul-m/tycho-lombokizer.git
 1. Download patched lombok.jar
 2. setup lombok.jar as javaagent for maven
-   export MAVEN_OPTS="-javaagent:<path to lombok.jar>"
+   export MAVEN_OPTS="-javaagent:\<path to lombok.jar\>"
 3. build all
    mvn clean package
