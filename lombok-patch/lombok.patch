@@ -1,8 +1,8 @@
 diff --git a/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcher.java b/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcher.java
-index aa01c13..1106d0d 100644
+index 25906c6..788fade 100644
 --- a/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcher.java
 +++ b/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcher.java
-@@ -39,33 +39,50 @@
+@@ -45,33 +45,50 @@
  						"java.lang.Class", "java.lang.String", "boolean"))
  				.target(new MethodTarget("org.eclipse.osgi.internal.loader.ModuleClassLoader", "loadClass",
  						"java.lang.Class", "java.lang.String", "boolean"))
@@ -57,7 +57,7 @@ index aa01c13..1106d0d 100644
  				.build());
  	}
 diff --git a/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcherTransplants.java b/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcherTransplants.java
-index ea72f56..5f65785 100644
+index 402d674..618666d 100644
 --- a/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcherTransplants.java
 +++ b/src/eclipseAgent/lombok/eclipse/agent/EclipseLoaderPatcherTransplants.java
 @@ -50,7 +50,23 @@
@@ -66,7 +66,7 @@ index ea72f56..5f65785 100644
  	}
 -	
 +
-+	public static boolean overrideLoadDecide4ClassRealm(ClassLoader original, String name, boolean resolve) {
++	public static boolean overrideLoadDecide4ClassRealm(ClassLoader original, String name, boolean resolve) throws ClassNotFoundException {
 +		boolean result = name.startsWith("lombok.");
 +		if (result) {
 +			ClassLoader l = original;

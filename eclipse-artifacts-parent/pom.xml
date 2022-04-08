@@ -3,16 +3,16 @@
     <parent>
         <groupId>pm.lombokizer</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>pm.lombokizer.eclipse-artifacts</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>eclipse artifacts parent</name>
     <properties>
-        <tycho-version>1.5.1</tycho-version>
+        <tycho-version>2.7.0</tycho-version>
     </properties>
 
     <build>
