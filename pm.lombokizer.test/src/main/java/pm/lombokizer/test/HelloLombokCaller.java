@@ -9,4 +9,8 @@ public class HelloLombokCaller {
         return new HelloLombok("hello").getHelloMessage();
     }
     
+    public void throwException() throws MyStandartExceptionEx {
+    	throw new MyStandartExceptionEx("test exception message");
+    }
+    
 }

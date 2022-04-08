@@ -6,11 +6,11 @@
     <parent>
         <groupId>pm.lombokizer.eclipse-artifacts</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <groupId>pm.lombokizer.eclipse-artifacts</groupId>
     <artifactId>org.projectlombok.lombok</artifactId>
-    <version>1.18.10-SNAPSHOT</version>
+    <version>1.18.22-SNAPSHOT</version>
     <packaging>eclipse-plugin</packaging>
     <name>Lombok bundle</name>
 
@@ -24,7 +24,7 @@
             <dependency>
                 <groupId>pm.lombokizer</groupId>
                 <artifactId>lombokizer-bom</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>1.0.1-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

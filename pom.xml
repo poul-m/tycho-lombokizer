@@ -10,9 +10,7 @@
     <name>lombokizer all</name>
 
     <modules>
-        <module>./lombokizer-parent</module>
         <module>./lombokizer-bom</module>
-        <module>./eclipse-artifacts-parent</module>
         <module>./org.projectlombok.lombok</module>
         <module>./pm.lombokizer.test</module>
     </modules>
